@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, StyleSheet, View, Button, ScrollView } from 'react-native'
+import { Text, StyleSheet, View, Button, ScrollView, TouchableOpacity } from 'react-native'
 
 class Home extends Component {
 
@@ -10,18 +10,9 @@ class Home extends Component {
             carouselItems: [
                 {
                     id: 1,
-                    title: "As soon as possible",
-                    text: "You see costumer location. We find optimal paths for your deliveries",
-                    id: 2,
-                    title: "Schedule an order",
-                    text: "Enjoy journey with your orders in real time",
-                },
-                {
-                    id: 2,
-                    title: "Schedule an order",
-                    text: "Enjoy journey with your orders in real time",
+                    title: "Welcome!",
+                    text: "You can ask any questions about our products!",
                 }
-
 
             ]
         }
@@ -37,29 +28,68 @@ class Home extends Component {
     render() {
         const data = this.state.carouselItems.map((item, index) => {
             return (
-                <View key={index}>
-                    <Text>Title: {item.title}</Text>
-                    <Text>Body: {item.text}</Text>
+                <View key={index} style={styles.container}>
+                    <Text style={styles.welcome}>{item.title}</Text>
+                    <Text style={styles.body_text} >{item.text}</Text>
                 </View>
             )
         })
         return (
-            <View>
-                <Text> textInComponent </Text>
-                <Button onPress={this.pressHandlerAbout} title='Go to about' />
+            <ScrollView>
+                <View style={styles.container}>
+                    <Text> textInComponent </Text>
+                    <Button onPress={this.pressHandlerAbout} title='Go to about' />
 
-                <Text> My name is: {this.state.name} </Text>
-                <Button onPress={this.updateName} title='Update name' />
+                    <Text> My name is: {this.state.name} </Text>
+                    <Button onPress={this.updateName} title='Update name' />
 
-                <Text> Accessing Object </Text>
+                    <Text> Accessing Object </Text>
 
-                <ScrollView>
+
                     {data}
-                </ScrollView>
+                    <View style={styles.button_container}>
+                        <TouchableOpacity style={styles.button_style}>
+                            <Text style={styles.btn_text_style}>Continue</Text>
+                        </TouchableOpacity>
+                    </View>
 
-            </View>
+
+                </View>
+            </ScrollView>
         )
     }
 }
 export default Home;
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    },
+    welcome: {
+        color: '#5AC18D',
+        textAlign: 'center'
+    },
+    body_text: {
+        color: '#5AC',
+        textAlign: 'center'
+    },
+    button_container: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        padding: 5,
+        paddingBottom: 35
+    },
+    button_style: {
+        padding: 8,
+        width: 100,
+        height: 40,
+        borderRadius: 20,
+        borderWidth: 2,
+        borderColor: '#5AC18D'
+    },
+    btn_text_style: {
+        color: 'black',
+        textAlign: 'center',
+        fontWeight: '900'
+    }
+
+})
