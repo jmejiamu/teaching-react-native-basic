@@ -6,7 +6,7 @@ const About = () => {
 
     const getProducts = async () => {
         try {
-            const res = await fetch('http://192.168.1.69:3001/allproduct')
+            const res = await fetch('http://192.168.1.xx:3001/allproduct')
             const jsonData = await res.json()
             setProduct(jsonData)
             // fetch('http://192.168.1.69:3001/allproduct')
