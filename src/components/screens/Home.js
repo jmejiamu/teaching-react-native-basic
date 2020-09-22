@@ -48,7 +48,9 @@ class Home extends Component {
 
                     {data}
                     <View style={styles.button_container}>
-                        <TouchableOpacity style={styles.button_style}>
+                        <TouchableOpacity style={styles.button_style}
+                            onPress={this.pressHandlerAbout}
+                        >
                             <Text style={styles.btn_text_style}>Continue</Text>
                         </TouchableOpacity>
                     </View>
