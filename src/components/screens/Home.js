@@ -37,14 +37,6 @@ class Home extends Component {
         return (
             <ScrollView>
                 <View style={styles.container}>
-                    <Text> textInComponent </Text>
-                    <Button onPress={this.pressHandlerAbout} title='Go to about' />
-
-                    <Text> My name is: {this.state.name} </Text>
-                    <Button onPress={this.updateName} title='Update name' />
-
-                    <Text> Accessing Object </Text>
-
 
                     {data}
                     <View style={styles.button_container}>
@@ -78,15 +70,17 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         padding: 5,
-        paddingBottom: 35
+        paddingBottom: 35,
+        alignItems: "center"
     },
     button_style: {
+        flex: 1,
         padding: 8,
         width: 100,
         height: 40,
         borderRadius: 20,
         borderWidth: 2,
-        borderColor: '#5AC18D'
+        borderColor: '#5AC18D',
     },
     btn_text_style: {
         color: 'black',
